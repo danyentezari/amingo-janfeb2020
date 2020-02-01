@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
 // Connect to our database
-const dbURL = "mongodb+srv://admin01:xoding100@cluster0-oikl7.mongodb.net/test?retryWrites=true&w=majority"
+const dbURL = "mongodb+srv://<username>:<password>@cluster0-oikl7.mongodb.net/test?retryWrites=true&w=majority"
 mongoose.connect(
     dbURL,
     {useNewUrlParser: true, useUnifiedTopology: true}
