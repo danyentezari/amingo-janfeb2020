@@ -1,5 +1,10 @@
-app.post(
-    '/user',
+const express = require('express');
+const router = express.Router();
+
+const UserModel = require('../models/User.js')
+
+router.post(
+    '/register', // http://www.myapp.com/user/register
     (req, res)=>{
 
         const formdata = {
@@ -11,8 +16,10 @@ app.post(
         }
 
         const theUserModel = new UserModel(formdata);
-        theUserModel.find();
+        theUserModel.save();
 
         res.send("User registration complete")
     }
 )
+
+module.exports = router;
