@@ -41,4 +41,33 @@ router.post(
     }
 )
 
+router.post(
+    '/login', // http://www.myapp.com/user/login
+    (req, res)=>{
+        const formdata = {
+            email: req.body.email,
+            password: req.body.password
+        }
+
+        // Step 1. Check to see if email exists
+        UserModel
+        .find({ email:  formdata.email})
+        .then((isMatch)=>{
+            // Step 2. If exists, check password
+            if(isMatch.length>0) {
+                // Step 3. Compare their password with database
+                // Step 4. Generate JWT
+                // Step 5. Send it to the client
+                // Step 3b.
+                    // Step 6. Exit 
+                res.send('Email found')
+            }
+            // Step 2.b If use doesn't exist, exit
+            else {
+                res.send('Please check email & password')
+            }
+        })
+    }
+)
+
 module.exports = router;
