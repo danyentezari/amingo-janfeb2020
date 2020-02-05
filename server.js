@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 
 // 2. Import routes 
 const UserRoutes = require('./routes/User.js');
+const FeedRoutes = require('./routes/Feed.js')
 
 // 3. Configure express to parse BODY
 app.use(bodyParser.urlencoded({extended: false}));
@@ -35,6 +36,12 @@ app.use(
     '/user', 
     UserRoutes
 );
+
+app.use(
+    '/feed', 
+    FeedRoutes
+);
+
 
 app.get(
     '/',  // http://www.example.com/
