@@ -18,7 +18,7 @@ mongoose.connect(
     {useNewUrlParser: true, useUnifiedTopology: true}
 )
 .then(
-   (response)=>{ // Sorry, not this tim
+   ()=>{ // Sorry, not this tim
        console.log('db is connected')
    } 
 ).catch(
