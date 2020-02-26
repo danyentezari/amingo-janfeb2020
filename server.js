@@ -1,6 +1,8 @@
 // 1. Import all the necessary npm modules
 const express = require('express');
 const app = express();
+const cors = require('cors');
+
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
@@ -11,6 +13,7 @@ const FeedRoutes = require('./routes/Feed.js')
 // 3. Configure express to parse BODY
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
+app.use(cors())
 
 // 4. Connect to our database
 const dbURL = "mongodb+srv://admin01:pass123@cluster0-oikl7.mongodb.net/test?retryWrites=true&w=majority"
