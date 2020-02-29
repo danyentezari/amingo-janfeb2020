@@ -10,13 +10,18 @@ const mongoose = require('mongoose');
 const UserRoutes = require('./routes/User.js');
 const FeedRoutes = require('./routes/Feed.js')
 
+// this will be keys_work or keys_prod depending on which
+// environment you're in.
+const keys = require('./config/keys');
+
+
 // 3. Configure express to parse BODY
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.use(cors())
 
 // 4. Connect to our database
-const dbURL = process.env.DB_URL;
+const dbURL = keys.DB_URL;
 
 mongoose.connect(
     dbURL,
